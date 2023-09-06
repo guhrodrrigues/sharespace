@@ -6,7 +6,9 @@ export default function Home() {
       <h1 className="text-6xl font-extrabold text-center">
         Discover & Share
         <br className="max-md:hidden" />
-        <span className="blue_gradient">AI-Powred Prompts</span>
+        <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+          AI-Powred Prompts
+        </span>
       </h1>
       <p className="text-center mt-5 text-lg text-gray-600 max-w-2xl">
         Promptopia is an open-source AI prompting tool for modern world to
