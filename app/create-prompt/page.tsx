@@ -43,7 +43,8 @@ export default function CreatePrompt() {
 
   return (
     <Form
-      type="Create"
+      type="Criar"
+      desc="Crie seus prompts, faça suas ideias se transformarem em obras-primas."
       post={post}
       setPost={setPost}
       submitting={submitting}

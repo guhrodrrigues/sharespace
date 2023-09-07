@@ -68,10 +68,14 @@
 
 @layer base {
 	* {
-		@apply border-border;
-  }
+		@apply border-border
+	}
 
-  body {
-		@apply bg-background text-foreground;
-  }
+	body {
+		@apply bg-background text-foreground
+	}
+
+	:is(header, button, input) {
+		@apply select-none
+	}
 }

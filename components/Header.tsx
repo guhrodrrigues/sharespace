@@ -5,15 +5,9 @@ import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { Button } from './ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from '@/components/ui/menubar'
+
 import { ToggleTheme } from './ToggleTheme'
+import MenuBar from './MenuBar'
 
 export default function Header() {
   const { data: session } = useSession()
@@ -21,13 +15,10 @@ export default function Header() {
   const [providers, setProviders] = useState(null)
 
   useEffect(() => {
-    const setUpProviders = async () => {
-      const response = await getProviders()
-
-      setProviders(response)
-    }
-
-    setUpProviders()
+    ;(async () => {
+      const res = await getProviders()
+      setProviders(res)
+    })()
   }, [])
 
   return (
@@ -36,23 +27,24 @@ export default function Header() {
         <Link href="/" className="flex justify-center items-center gap-2">
           <h1 className="font-semibold text-lg tracking-wide">ShareSpace</h1>
         </Link>
+
         <div className="hidden md:flex">
           {session?.user ? (
             <div className="flex items-center gap-3 md:gap-5">
               <Link href="/create-prompt">
-                <Button>Create post</Button>
+                <Button>Criar post</Button>
               </Link>
 
               <Button onClick={signOut} variant="outline">
-                Sign Out
+                Sair
               </Button>
 
               <ToggleTheme />
 
               <Link href="/profile">
-                <Avatar className="w-8 h-8">
+                <Avatar className="w-9 h-9">
                   <AvatarImage src={session?.user.image} />
-                  <AvatarFallback>GR</AvatarFallback>
+                  <AvatarFallback>SS</AvatarFallback>
                 </Avatar>
               </Link>
             </div>
@@ -64,33 +56,18 @@ export default function Header() {
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
                   >
-                    Sign in
+                    Entrar
                   </Button>
                 ))}
-
-              <ToggleTheme />
             </div>
           )}
         </div>
 
-        <div className="md:hidden flex relative">
+        <div className="md:hidden flex gap-3 relative">
+          <ToggleTheme />
+
           {session?.user ? (
-            <Menubar>
-              <MenubarMenu>
-                <MenubarTrigger>
-                  <Avatar>
-                    <AvatarImage src={session?.user.image} />
-                    <AvatarFallback>GR</AvatarFallback>
-                  </Avatar>
-                </MenubarTrigger>
-                <MenubarContent>
-                  <MenubarItem>Meu perfil</MenubarItem>
-                  <MenubarItem>Criar prompt</MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem onClick={() => signOut()}>Sign Out</MenubarItem>
-                </MenubarContent>
-              </MenubarMenu>
-            </Menubar>
+            <MenuBar session={session} signOut={signOut} />
           ) : (
             <div className="flex items-center gap-3 md:gap-5">
               {providers &&
@@ -99,10 +76,9 @@ export default function Header() {
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
                   >
-                    Sign in
+                    Entrar
                   </Button>
                 ))}
-              <ToggleTheme />
             </div>
           )}
         </div>

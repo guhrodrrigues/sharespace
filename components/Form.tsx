@@ -2,10 +2,12 @@ import { Input } from '@/components/ui/input'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
 import Link from 'next/link'
+import { Label } from './ui/label'
 
 export default function Form({
   type,
   post,
+  desc,
   setPost,
   submitting,
   handleSubmit,
@@ -17,31 +19,28 @@ export default function Form({
           {type} Post
         </span>
       </h1>
-      <p className="mt-5 text-lg max-w-md text-foreground/70">
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform.
-      </p>
+      <p className="mt-5 text-lg max-w-md text-muted-foreground">{desc}</p>
 
       <form
         onSubmit={handleSubmit}
         className="mt-10 w-full max-w-2xl flex flex-col gap-7"
       >
-        <label>
-          <span className="font-semibold text-base">Your AI Prompt</span>
+        <Label>
+          <span className="font-semibold text-base">Prompt</span>
 
           <Textarea
             value={post.propmt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder="Write your prompt here..."
+            placeholder="Digite seu prompt..."
             required
             className="h-28 my-4"
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           <span className="font-semibold text-base">
             Tag{' '}
             <span className="font-normal">
-              (#product, #webdevelopment, #idea)
+              (#programação, #inspiração, #design)
             </span>
           </span>
 
@@ -52,11 +51,11 @@ export default function Form({
             required
             className="my-4"
           />
-        </label>
+        </Label>
 
         <div className="flex justify-end space-x-4">
           <Link href="/">
-            <Button variant="ghost">Cancel</Button>
+            <Button variant="ghost">Cancelar</Button>
           </Link>
 
           <Button type="submit" disabled={submitting}>
