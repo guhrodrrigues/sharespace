@@ -21,11 +21,11 @@ export default function MenuBar({ session, signOut }: MenuBarProps) {
           </Avatar>
         </MenubarTrigger>
         <MenubarContent>
-          <Link href="/create-prompt">
-            <MenubarItem>Criar prompt</MenubarItem>
-          </Link>
           <Link href="/profile">
             <MenubarItem>Perfil</MenubarItem>
+          </Link>
+          <Link href="/create-prompt">
+            <MenubarItem>Criar prompt</MenubarItem>
           </Link>
           <MenubarSeparator />
           <MenubarItem onClick={signOut as any}>Sair</MenubarItem>

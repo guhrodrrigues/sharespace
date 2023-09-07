@@ -55,7 +55,7 @@ export default function MyProfile() {
   return (
     <Profile
       name="Meu"
-      desc="Mostre sua singularidade e brilhe! Personalize seu perfil no ShareSpace e deixe sua criatividade falar por si."
+      desc="Mostre sua singularidade e brilhe! Personalize seus prompts no ShareSpace e deixe sua criatividade falar por si."
       data={posts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}

@@ -5,6 +5,8 @@ import Link from 'next/link'
 
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
+import { Github } from 'lucide-react'
+
 import { Button } from './ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
 import MenuBar from './MenuBar'
@@ -27,13 +29,16 @@ export default function Header() {
       <nav className="flex justify-between items-center h-full">
         <Link href="/" className="flex justify-center items-center gap-2">
           <h1 className="font-bold text-lg tracking-wide">
-            Share<span className="text-blue-600">Space</span>
+            <span className="hidden md:inline">Share</span>
+            <span className="hidden md:inline text-blue-600">Space</span>
+            <span className="md:hidden">S</span>
+            <span className="md:hidden 	text-blue-600">S</span>
           </h1>
         </Link>
 
         <div className="hidden md:flex">
           {session?.user ? (
-            <div className="flex items-center gap-3 md:gap-5">
+            <div className="flex items-center gap-3">
               <Link href="/create-prompt">
                 <Button>Criar post</Button>
               </Link>
@@ -41,8 +46,6 @@ export default function Header() {
               <Button onClick={signOut as any} variant="outline">
                 Sair
               </Button>
-
-              <ToggleTheme />
 
               <Link href="/profile">
                 <Avatar className="w-9 h-9">
@@ -53,6 +56,22 @@ export default function Header() {
                   <AvatarFallback>SS</AvatarFallback>
                 </Avatar>
               </Link>
+
+              <div className="h-6 w-px bg-input" />
+
+              <div className="space-x-1.5">
+                <a
+                  href="https://github.com/guhrodriguess/sharespace"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button size="icon" variant="ghost">
+                    <Github className="h-[1.2rem] w-[1.2rem]" />
+                  </Button>
+                </a>
+
+                <ToggleTheme />
+              </div>
             </div>
           ) : (
             <div className="flex items-center gap-3 md:gap-5">
@@ -65,12 +84,42 @@ export default function Header() {
                     Entrar
                   </Button>
                 ))}
+
+              <div className="h-6 w-px bg-input" />
+
+              <div className="space-x-1.5">
+                <a
+                  href="https://github.com/guhrodriguess/sharespace"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button size="icon" variant="ghost">
+                    <Github className="h-[1.2rem] w-[1.2rem]" />
+                  </Button>
+                </a>
+
+                <ToggleTheme />
+              </div>
             </div>
           )}
         </div>
 
-        <div className="md:hidden flex gap-3 relative">
-          <ToggleTheme />
+        <div className="md:hidden flex gap-3 items-center">
+          <div className="space-x-1.5">
+            <a
+              href="https://github.com/guhrodriguess/sharespace"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button size="icon" variant="ghost">
+                <Github className="h-[1.2rem] w-[1.2rem]" />
+              </Button>
+            </a>
+
+            <ToggleTheme />
+          </div>
+
+          <div className="h-6 w-px bg-input" />
 
           {session?.user ? (
             <MenuBar session={session} signOut={signOut as any} />

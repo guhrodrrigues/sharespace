@@ -79,7 +79,7 @@
 		@apply bg-blue-600/10 text-blue-600
 	}
 
-	:is(header, button, input) {
+	:is(header, button, input, a) {
 		@apply select-none
 	}
 }
