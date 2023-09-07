@@ -28,10 +28,15 @@ export interface PromptProps {
   post: any
   handleEdit?: () => void
   handleDelete?: () => void
-  handleTagClick?: () => void
+  handleTagClick?: (post: void) => void
 }
 
 export interface MenuBarProps {
   session: Session
   signOut: SignOutResponse
+}
+
+export interface PromptListProps {
+  data: any
+  handleTagClick: (tagName: void) => void
 }

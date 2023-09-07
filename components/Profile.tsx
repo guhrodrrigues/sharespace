@@ -1,4 +1,5 @@
 import { ProfileProps } from '@/types'
+
 import PromptCard from './PromptCard'
 
 export default function Profile({

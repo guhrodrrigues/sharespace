@@ -1,13 +1,15 @@
 'use client'
 
-import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+
 import { Button } from './ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
+import MenuBar from './MenuBar'
 
 import { ToggleTheme } from './ToggleTheme'
-import MenuBar from './MenuBar'
 
 export default function Header() {
   const { data: session } = useSession()
@@ -15,7 +17,7 @@ export default function Header() {
 
   useEffect(() => {
     ;(async () => {
-      const res = await getProviders()
+      const res: any = await getProviders()
       setProviders(res)
     })()
   }, [])
@@ -44,7 +46,10 @@ export default function Header() {
 
               <Link href="/profile">
                 <Avatar className="w-9 h-9">
-                  <AvatarImage src={session?.user.image} alt="User image" />
+                  <AvatarImage
+                    src={session?.user.image || ''}
+                    alt="User image"
+                  />
                   <AvatarFallback>SS</AvatarFallback>
                 </Avatar>
               </Link>
@@ -68,7 +73,7 @@ export default function Header() {
           <ToggleTheme />
 
           {session?.user ? (
-            <MenuBar session={session} signOut={signOut} />
+            <MenuBar session={session} signOut={signOut as any} />
           ) : (
             <div className="flex items-center gap-3 md:gap-5">
               {providers &&

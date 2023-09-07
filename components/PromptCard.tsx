@@ -1,8 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
+
+import { Files } from 'lucide-react'
+
+import { PromptProps } from '@/types'
 
 import {
   Card,
@@ -11,11 +15,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from './ui/card'
+
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
+
 import { Button } from './ui/button'
-import { Files } from 'lucide-react'
-import { PromptProps } from '@/types'
 
 export default function PromptCard({
   post,

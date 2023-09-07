@@ -16,7 +16,7 @@ export default function MenuBar({ session, signOut }: MenuBarProps) {
       <MenubarMenu>
         <MenubarTrigger>
           <Avatar>
-            <AvatarImage src={session?.user.image} />
+            <AvatarImage src={session?.user.image || ''} />
             <AvatarFallback>SS</AvatarFallback>
           </Avatar>
         </MenubarTrigger>
@@ -28,7 +28,7 @@ export default function MenuBar({ session, signOut }: MenuBarProps) {
             <MenubarItem>Perfil</MenubarItem>
           </Link>
           <MenubarSeparator />
-          <MenubarItem onClick={signOut}>Sair</MenubarItem>
+          <MenubarItem onClick={signOut as any}>Sair</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

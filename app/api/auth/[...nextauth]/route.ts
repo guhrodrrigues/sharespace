@@ -7,8 +7,8 @@ import { connectToDB } from '@/utils/database'
 const handler = NextAuth({
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_ID || '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
   ],
   callbacks: {
@@ -19,7 +19,7 @@ const handler = NextAuth({
 
       return session
     },
-    async signIn({ account, profile, user, credentials }) {
+    async signIn({ profile }: any) {
       try {
         await connectToDB()
 
@@ -37,7 +37,6 @@ const handler = NextAuth({
 
         return true
       } catch (error) {
-        console.log('Error checking if user exists: ', error.message)
         return false
       }
     },

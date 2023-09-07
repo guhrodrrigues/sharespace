@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+
 import { Input } from './ui/input'
+
 import PromptCardList from './PromptCardList'
 
 export default function Feed() {

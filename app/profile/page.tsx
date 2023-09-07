@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import type { Metadata } from 'next'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+
+import { useSession } from 'next-auth/react'
 
 import Profile from '@/components/Profile'
 

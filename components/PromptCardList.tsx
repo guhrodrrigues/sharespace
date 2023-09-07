@@ -1,14 +1,13 @@
-import { Session } from 'next-auth'
+import { PromptListProps } from '@/types'
+
 import PromptCard from './PromptCard'
 
-interface PromptProps {
-  data: Session
-  handleTagClick: () => void
-}
-
-export default function PromptCardList({ data, handleTagClick }: PromptProps) {
+export default function PromptCardList({
+  data,
+  handleTagClick,
+}: PromptListProps) {
   return (
-    <div className="grid lg:grid-cols-3 mt-16 gap-4">
+    <div className="grid lg:grid-cols-3 my-16 gap-4">
       {data.map((post: any) => (
         <PromptCard
           key={post._id}

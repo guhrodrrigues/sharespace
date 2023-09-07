@@ -1,7 +1,11 @@
 import '@/styles/globals.css'
+
 import type { Metadata } from 'next'
+
 import { Poppins } from 'next/font/google'
+
 import Header from '@/components/Header'
+
 import Provider from '@/components/Provider'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -68,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={poppins.className}>
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

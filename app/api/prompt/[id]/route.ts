@@ -1,7 +1,10 @@
+import { NextRequest } from 'next/server'
+
 import { connectToDB } from '@/utils/database'
+
 import Prompt from '@/models/prompt'
 
-export const GET = async (request, { params }) => {
+export const GET = async ({ params }: any) => {
   try {
     await connectToDB()
 
@@ -21,7 +24,7 @@ export const GET = async (request, { params }) => {
   }
 }
 
-export const PATCH = async (request, { params }) => {
+export const PATCH = async (request: NextRequest, { params }: any) => {
   const { prompt, tag } = await request.json()
 
   try {
@@ -46,7 +49,7 @@ export const PATCH = async (request, { params }) => {
   }
 }
 
-export const DELETE = async (request, { params }) => {
+export const DELETE = async ({ params }: any) => {
   try {
     await connectToDB()
 

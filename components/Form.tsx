@@ -1,8 +1,10 @@
-import { Input } from '@/components/ui/input'
+import Link from 'next/link'
+
+import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
-import Link from 'next/link'
 import { Label } from './ui/label'
+
 import { FormProps } from '@/types'
 
 export default function Form({

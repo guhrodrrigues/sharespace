@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { Metadata } from 'next'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+
+import { useSession } from 'next-auth/react'
 
 import Form from '@/components/Form'
 
@@ -50,7 +51,7 @@ export default function CreatePrompt() {
   return (
     <Form
       type="Criar"
-      desc="Crie seus prompts, faça suas ideias se transformarem em obras-primas."
+      desc="Faça suas ideias se transformarem em obras-primas."
       post={post}
       setPost={setPost}
       submitting={submitting}
