@@ -1,11 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import { Metadata } from 'next'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 import Form from '@/components/Form'
-import router from 'next/router'
+
+export const metadata: Metadata = {
+  title: 'Criar post · ShareSpace',
+  description:
+    'Onde a inspiração se torna colaboração e as ideias se transformam em obras-primas.',
+}
 
 export default function CreatePrompt() {
   const router = useRouter()
@@ -17,7 +23,7 @@ export default function CreatePrompt() {
     tag: '',
   })
 
-  const createPrompt = async (e) => {
+  const createPrompt = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
 

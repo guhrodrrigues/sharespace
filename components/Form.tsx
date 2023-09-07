@@ -3,15 +3,16 @@ import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
 import Link from 'next/link'
 import { Label } from './ui/label'
+import { FormProps } from '@/types'
 
 export default function Form({
   type,
-  post,
   desc,
+  post,
   setPost,
   submitting,
   handleSubmit,
-}) {
+}: FormProps) {
   return (
     <section className="w-full max-w-full flex flex-col">
       <h1 className="text-6xl font-extrabold">
@@ -29,7 +30,7 @@ export default function Form({
           <span className="font-semibold text-base">Prompt</span>
 
           <Textarea
-            value={post.propmt}
+            value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder="Digite seu prompt..."
             required

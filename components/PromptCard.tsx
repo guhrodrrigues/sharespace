@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -16,14 +15,14 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
 import { Button } from './ui/button'
 import { Files } from 'lucide-react'
-import { Separator } from './ui/separator'
+import { PromptProps } from '@/types'
 
 export default function PromptCard({
   post,
   handleTagClick,
   handleEdit,
   handleDelete,
-}) {
+}: PromptProps) {
   const { data: session } = useSession()
   const pathname = usePathname()
   const router = useRouter()
@@ -31,11 +30,9 @@ export default function PromptCard({
   const [copied, setCopied] = useState('')
 
   const handleProfileClick = () => {
-    if (post.creator._id === session?.user.id) {
+    if (post.creator._id === session?.user.id && pathname === '/') {
       return router.push('/profile')
     }
-
-    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`)
   }
 
   const handleCopy = () => {
@@ -47,7 +44,10 @@ export default function PromptCard({
   }
 
   return (
-    <Card>
+    <Card
+      onClick={handleProfileClick}
+      className={`${pathname === '/' && 'cursor-pointer'}`}
+    >
       <CardHeader className="flex-row flex-wrap w-full justify-between gap-4">
         <div className="flex flex-wrap gap-4">
           <Avatar>
@@ -74,26 +74,18 @@ export default function PromptCard({
         <p className="text-sm">{post.prompt}</p>
         <p
           className="text-sm text-cyan-600 cursor-pointer"
-          onClick={() => handleClick && handleTagClick(post.tag)}
+          onClick={() => handleTagClick && handleTagClick(post.tag)}
         >
           #{post.tag}
         </p>
       </CardContent>
 
       {session?.user.id === post.creator._id && pathname === '/profile' && (
-        <CardFooter className="select-none">
-          <p
-            className="text-sm text-cyan-500 cursor-pointer"
-            onClick={handleEdit}
-          >
-            Edit
-          </p>
-          <p
-            className="text-sm text-red-300 cursor-pointer"
-            onClick={handleDelete}
-          >
+        <CardFooter className="justify-start gap-3">
+          <Button onClick={handleEdit}>Edit</Button>
+          <Button onClick={handleDelete} variant="destructive">
             Delete
-          </p>
+          </Button>
         </CardFooter>
       )}
     </Card>

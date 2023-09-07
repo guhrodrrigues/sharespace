@@ -11,7 +11,6 @@ import MenuBar from './MenuBar'
 
 export default function Header() {
   const { data: session } = useSession()
-
   const [providers, setProviders] = useState(null)
 
   useEffect(() => {
@@ -25,7 +24,9 @@ export default function Header() {
     <header className="mb-16 w-full h-20">
       <nav className="flex justify-between items-center h-full">
         <Link href="/" className="flex justify-center items-center gap-2">
-          <h1 className="font-semibold text-lg tracking-wide">ShareSpace</h1>
+          <h1 className="font-bold text-lg tracking-wide">
+            Share<span className="text-blue-600">Space</span>
+          </h1>
         </Link>
 
         <div className="hidden md:flex">
@@ -35,7 +36,7 @@ export default function Header() {
                 <Button>Criar post</Button>
               </Link>
 
-              <Button onClick={signOut} variant="outline">
+              <Button onClick={signOut as any} variant="outline">
                 Sair
               </Button>
 
@@ -43,7 +44,7 @@ export default function Header() {
 
               <Link href="/profile">
                 <Avatar className="w-9 h-9">
-                  <AvatarImage src={session?.user.image} />
+                  <AvatarImage src={session?.user.image} alt="User image" />
                   <AvatarFallback>SS</AvatarFallback>
                 </Avatar>
               </Link>
@@ -51,7 +52,7 @@ export default function Header() {
           ) : (
             <div className="flex items-center gap-3 md:gap-5">
               {providers &&
-                Object.values(providers).map((provider) => (
+                Object.values(providers).map((provider: any) => (
                   <Button
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
@@ -71,7 +72,7 @@ export default function Header() {
           ) : (
             <div className="flex items-center gap-3 md:gap-5">
               {providers &&
-                Object.values(providers).map((provider) => (
+                Object.values(providers).map((provider: any) => (
                   <Button
                     key={provider.name}
                     onClick={() => signIn(provider.id)}

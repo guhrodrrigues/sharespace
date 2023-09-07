@@ -1,3 +1,4 @@
+import { ProfileProps } from '@/types'
 import PromptCard from './PromptCard'
 
 export default function Profile({
@@ -6,7 +7,7 @@ export default function Profile({
   data,
   handleEdit,
   handleDelete,
-}) {
+}: ProfileProps) {
   return (
     <section className="w-full max-w-2xl">
       <h1 className="text-6xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
@@ -17,7 +18,7 @@ export default function Profile({
       </p>
 
       <div className="mt-10 space-y-6 py-8 gap-6">
-        {data.map((post) => (
+        {data.map((post: any) => (
           <PromptCard
             key={post._id}
             post={post}

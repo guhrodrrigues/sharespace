@@ -75,6 +75,10 @@
 		@apply bg-background text-foreground
 	}
 
+	::selection {
+		@apply bg-blue-600/10 text-blue-600
+	}
+
 	:is(header, button, input) {
 		@apply select-none
 	}

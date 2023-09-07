@@ -5,9 +5,9 @@ import { Input } from './ui/input'
 import PromptCardList from './PromptCardList'
 
 export default function Feed() {
-  const [allPosts, setAllPosts] = useState([])
-  const [searchText, setSearchText] = useState('')
-  const [searchTimeout, setSearchTimeout] = useState(null)
+  const [allPosts, setAllPosts] = useState<any | null>([])
+  const [searchText, setSearchText] = useState<string>('')
+  const [searchTimeout, setSearchTimeout] = useState<any | null>(null)
   const [searchedResults, setSearchedResults] = useState([])
 
   const fetchPosts = async () => {
@@ -21,20 +21,22 @@ export default function Feed() {
     fetchPosts()
   }, [])
 
-  const filterPrompts = (searchtext) => {
+  const filterPrompts = (searchtext: string) => {
     const regex = new RegExp(searchtext, 'i')
+
     return allPosts.filter(
-      (item) =>
+      (item: any) =>
         regex.test(item.creator.username) ||
         regex.test(item.tag) ||
         regex.test(item.prompt),
     )
   }
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTimeout(
       setTimeout(() => {
         const searchResult = filterPrompts(e.target.value)
+
         setSearchedResults(searchResult)
       }, 500),
     )
@@ -43,7 +45,7 @@ export default function Feed() {
     setSearchText(e.target.value)
   }
 
-  const handleTagClick = (tagName) => {
+  const handleTagClick = (tagName: any) => {
     setSearchText(tagName)
 
     const searchResult = filterPrompts(tagName)

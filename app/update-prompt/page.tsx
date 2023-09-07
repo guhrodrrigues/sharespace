@@ -1,15 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import type { Metadata } from 'next'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import Form from '@/components/Form'
-import router from 'next/router'
-import { useSession } from 'next-auth/react'
+
+export const metadata: Metadata = {
+  title: 'Atualizar post · ShareSpace',
+  description:
+    'Onde a inspiração se torna colaboração e as ideias se transformam em obras-primas.',
+}
 
 export default function EditPrompt() {
   const router = useRouter()
-  const { data: session } = useSession()
   const searchParams = useSearchParams()
   const promptId = searchParams.get('id')
 
@@ -36,7 +40,7 @@ export default function EditPrompt() {
     }
   }, [promptId])
 
-  const updatePrompt = async (e) => {
+  const updatePrompt = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
 

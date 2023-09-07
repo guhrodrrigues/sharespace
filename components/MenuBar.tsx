@@ -8,8 +8,9 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from '@/components/ui/menubar'
+import { MenuBarProps } from '@/types'
 
-export default function MenuBar({ session, signOut }) {
+export default function MenuBar({ session, signOut }: MenuBarProps) {
   return (
     <Menubar>
       <MenubarMenu>
