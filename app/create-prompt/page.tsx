@@ -1,18 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { Metadata } from 'next'
 import { useRouter } from 'next/navigation'
 
 import { useSession } from 'next-auth/react'
 
 import Form from '@/components/Form'
-
-export const metadata: Metadata = {
-  title: 'Criar post · ShareSpace',
-  description:
-    'Onde a inspiração se torna colaboração e as ideias se transformam em obras-primas.',
-}
 
 export default function CreatePrompt() {
   const router = useRouter()

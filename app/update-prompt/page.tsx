@@ -1,16 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import type { Metadata } from 'next'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import Form from '@/components/Form'
-
-export const metadata: Metadata = {
-  title: 'Atualizar post · ShareSpace',
-  description:
-    'Onde a inspiração se torna colaboração e as ideias se transformam em obras-primas.',
-}
 
 export default function EditPrompt() {
   const router = useRouter()

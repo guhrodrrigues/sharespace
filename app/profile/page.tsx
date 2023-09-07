@@ -1,18 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import type { Metadata } from 'next'
 import { useRouter } from 'next/navigation'
 
 import { useSession } from 'next-auth/react'
 
 import Profile from '@/components/Profile'
-
-export const metadata: Metadata = {
-  title: 'Perfil · ShareSpace',
-  description:
-    'Onde a inspiração se torna colaboração e as ideias se transformam em obras-primas.',
-}
 
 export default function MyProfile() {
   const router = useRouter()
