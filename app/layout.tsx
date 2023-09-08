@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'TailwindCSS',
     'NextAuth',
     'Mongoose',
-    'Brasil',
+    'Brazil',
   ],
   openGraph: {
     description:
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: 'ShareSpace',
     title: 'ShareSpace',
     type: 'website',
-    url: '',
+    url: 'https://sharespacelab.vercel.app',
   },
   twitter: {
     card: 'summary_large_image',
