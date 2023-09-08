@@ -55,7 +55,7 @@ export default function Feed() {
   }
 
   return (
-    <section className="mt-16 flex justify-center items-center flex-col gap-2">
+    <section className="w-full mt-16 flex justify-center items-center flex-col gap-2">
       <form className="relative mx-auto w-full max-w-xl flex items-center justify-center">
         <Input
           placeholder="Pesquise um nome de usuário ou uma tag"
