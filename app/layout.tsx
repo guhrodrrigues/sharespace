@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   category: 'developer',
   creator: 'Gustavo Rodrigues',
   authors: [
-    { name: 'Gustavo Rodrigues', url: 'https://guhrodrigues.vercel.app' },
+    { name: 'Gustavo Rodrigues', url: 'https://guhrodrigues.com' },
   ],
   icons: {
     apple: '/favicon.svg',
