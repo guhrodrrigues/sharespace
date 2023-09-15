@@ -7,11 +7,11 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 import { Github } from 'lucide-react'
 
-import { Button } from './ui/button'
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
-import MenuBar from './MenuBar'
+import { Button } from './button'
+import { Avatar, AvatarImage, AvatarFallback } from './avatar'
+import MenuBar from './ProfileBar'
 
-import { ToggleTheme } from './ToggleTheme'
+import { ToggleTheme } from '@/components/ui/ToggleTheme'
 
 export default function Header() {
   const { data: session } = useSession()

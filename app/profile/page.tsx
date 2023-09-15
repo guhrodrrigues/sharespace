@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import { useSession } from 'next-auth/react'
 
-import Profile from '@/components/Profile'
+import Profile from '@/components/ui/Profile'
 
 export default function MyProfile() {
   const router = useRouter()

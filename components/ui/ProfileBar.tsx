@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar'
+import { Avatar, AvatarImage, AvatarFallback } from './avatar'
 import {
   Menubar,
   MenubarContent,
@@ -8,9 +8,9 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from '@/components/ui/menubar'
-import { MenuBarProps } from '@/types'
+import { ProfileBarProps } from '@/types'
 
-export default function MenuBar({ session, signOut }: MenuBarProps) {
+export default function ProfileBar({ session, signOut }: ProfileBarProps) {
   return (
     <Menubar>
       <MenubarMenu>

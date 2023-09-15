@@ -4,10 +4,11 @@ import type { Metadata } from 'next'
 
 import { Poppins } from 'next/font/google'
 
-import Header from '@/components/Header'
+import Header from '@/components/ui/Header'
+import { AnimateEnter } from '@/components/utils/AnimateEnter'
 
-import Provider from '@/components/Provider'
-import { ThemeProvider } from '@/components/theme-provider'
+import Provider from '@/context/Provider'
+import { ThemeProvider } from '@/context/theme-provider'
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
@@ -79,10 +80,12 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <main className="max-w-6xl w-full px-4 mx-auto min-h-screen">
-              <Header />
-              {children}
-            </main>
+            <AnimateEnter>
+              <main className="max-w-6xl w-full px-4 mx-auto min-h-screen">
+                <Header />
+                {children}
+              </main>
+            </AnimateEnter>
           </ThemeProvider>
         </Provider>
       </body>

@@ -31,7 +31,7 @@ export interface PromptProps {
   handleTagClick?: (post: void) => void
 }
 
-export interface MenuBarProps {
+export interface ProfileBarProps {
   session: Session
   signOut: SignOutResponse
 }
@@ -39,4 +39,9 @@ export interface MenuBarProps {
 export interface PromptListProps {
   data: any
   handleTagClick: (tagName: void) => void
+}
+
+export interface AnimateEnterProps {
+  children: React.ReactNode
+  className?: string
 }

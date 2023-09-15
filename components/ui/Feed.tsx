@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react'
 
-import { Input } from './ui/input'
+import { Input } from './input'
 
-import PromptCardList from './PromptCardList'
+import { PromptCardList } from '@/components/ui/PromptCardList'
 
-export default function Feed() {
+export function Feed() {
   const [allPosts, setAllPosts] = useState<any | null>([])
   const [searchText, setSearchText] = useState<string>('')
   const [searchTimeout, setSearchTimeout] = useState<any | null>(null)

@@ -1,11 +1,8 @@
 import { PromptListProps } from '@/types'
 
-import PromptCard from './PromptCard'
+import { PromptCard } from './PromptCard'
 
-export default function PromptCardList({
-  data,
-  handleTagClick,
-}: PromptListProps) {
+export function PromptCardList({ data, handleTagClick }: PromptListProps) {
   return (
     <div className="grid lg:grid-cols-3 my-16 gap-4">
       {data.map((post: any) => (
