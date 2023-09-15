@@ -80,7 +80,7 @@ export default function PromptCard({
           className="text-sm text-cyan-600 cursor-pointer"
           onClick={() => handleTagClick && handleTagClick(post.tag)}
         >
-          #{post.tag}
+          {post.tag}
         </p>
       </CardContent>
 
