@@ -1,8 +1,6 @@
-import '@/styles/globals.css'
-
 import type { Metadata } from 'next'
-
 import { Poppins } from 'next/font/google'
+import '@/styles/globals.css'
 
 import Header from '@/components/ui/Header'
 import { AnimateEnter } from '@/components/utils/AnimateEnter'
@@ -80,11 +78,10 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <AnimateEnter>
-              <main className="max-w-6xl w-full px-4 mx-auto min-h-screen">
-                <Header />
-                {children}
-              </main>
+            <AnimateEnter className="max-w-6xl w-full px-4 mx-auto min-h-screen">
+              <Header />
+
+              {children}
             </AnimateEnter>
           </ThemeProvider>
         </Provider>
