@@ -7,8 +7,8 @@ import { Poppins } from 'next/font/google'
 import Header from '@/components/ui/Header'
 import { AnimateEnter } from '@/components/utils/AnimateEnter'
 
-import Provider from '@/context/Provider'
-import { ThemeProvider } from '@/context/theme-provider'
+import Provider from '@/components/ui/providers/Provider'
+import { ThemeProvider } from '@/components/ui/providers/theme-provider'
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
